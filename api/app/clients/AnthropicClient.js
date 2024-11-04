@@ -768,6 +768,7 @@ class AnthropicClient extends BaseClient {
 
     const maxRetries = 3;
     const streamRate = this.options.streamRate ?? Constants.DEFAULT_STREAM_RATE;
+    logger.info('[AnthropicClient] streamRate: ' + streamRate);
     async function processResponse() {
       let attempts = 0;
 

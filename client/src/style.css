@@ -37,11 +37,35 @@
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
+
+  /* Reds */
+  --red-50: #fff5f5;
+  --red-100: #fed7d7;
+  --red-200: #feb2b2;
+  --red-300: #fc8181;
+  --red-400: #f56565;
+  --red-500: #e53e3e;
+  --red-600: #c53030;
+  --red-700: #9b2c2c;
+  --red-800: #822727;
+  --red-900: #63171b;
+
+  /* Blues */
+  --blue-50: #ebf8ff;
+  --blue-100: #bee3f8;
+  --blue-200: #90cdf4;
+  --blue-300: #63b3ed;
+  --blue-400: #4299e1;
+  --blue-500: #3182ce;
+  --blue-600: #2b6cb0;
+  --blue-700: #2c5282;
+  --blue-800: #2a4365;
+  --blue-900: #1a365d;
 }
 html {
-  --text-primary: var(--gray-800);
-  --text-secondary: var(--gray-600);
-  --text-secondary-alt: var(--gray-500);
+  --text-primary: var(--red-600);
+  --text-secondary: var(--blue-700);
+  --text-secondary-alt: var(--blue-600);
   --text-tertiary: var(--gray-500);
   --ring-primary: var(--gray-500);
   --header-primary: var(--white);
