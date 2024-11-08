@@ -63,7 +63,7 @@
   --blue-900: #1a365d;
 }
 html {
-  --text-primary: var(--red-600);
+  --text-primary: var(--blue-900);
   --text-secondary: var(--blue-700);
   --text-secondary-alt: var(--blue-600);
   --text-tertiary: var(--gray-500);
@@ -74,11 +74,11 @@ html {
   --surface-active: var(--gray-100);
   --surface-hover: var(--gray-200);
   --surface-primary: var(--white);
-  --surface-primary-alt: var(--gray-50);
-  --surface-primary-contrast: var(--gray-100);
+  --surface-primary-alt: var(--blue-50);
+  --surface-primary-contrast: var(--blue-100);
   --surface-secondary: var(--gray-50);
   --surface-secondary-alt: var(--gray-300);
-  --surface-tertiary: var(--gray-100);
+  --surface-tertiary: var(--blue-100);
   --surface-tertiary-alt: var(--white);
   --surface-dialog: var(--white);
   --surface-submit: var(--green-500);
@@ -106,7 +106,7 @@ html {
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
-  --radius: 0.5rem;
+  --radius: 12px;
   --chart-1: 12 76% 61%;
   --chart-2: 173 58% 39%;
   --chart-3: 197 37% 24%;
@@ -2423,3 +2423,42 @@ button.scroll-convo {
   scale: 1;
   translate: 0;
 }
+
+/* Navigation/Menu Items
+.nav-item {
+  @apply flex items-center px-3 py-2 hover:bg-surface-secondary-hover transition-colors;
+}
+
+.nav-item-active {
+  @apply bg-nav-active text-white;
+}
+
+
+.data-panel {
+  @apply bg-surface-secondary border  rounded-none;
+}
+
+.input-area {
+  @apply bg-white border border-input-border focus:border-input-focus outline-none;
+}
+
+.primary-button {
+  @apply bg-button-primary text-white hover:bg-oegb-red/90 transition-colors;
+}
+
+.secondary-button {
+  @apply bg-button-secondary text-oegb-red border border-border-light hover:bg-surface-secondary-hover;
+}
+
+.content-section {
+  @apply bg-surface-primary-alt p-4;
+}
+
+.heading {
+  @apply font-heading text-text-primary;
+}
+
+.body-text {
+  @apply font-sans text-text-primary;
+}
+ */

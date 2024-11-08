@@ -133,7 +133,27 @@ const ChatForm = ({ index = 0 }) => {
 
   const baseClasses =
     'md:py-3.5 m-0 w-full resize-none bg-surface-tertiary py-[13px] placeholder-black/50 dark:placeholder-white/50 [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] max-h-[65vh] md:max-h-[75vh]';
+// styles/textarea.ts
+  const textareaStyles = {
+    base: `w-full font-sans bg-white border border-border-light
+         outline-none resize-none p-3
+         transition-all duration-200
+         disabled:bg-surface-secondary disabled:border-border-light disabled:cursor-not-allowed`,
 
+    focus: 'focus:border-oegb-red focus:ring-1 focus:ring-oegb-red/10',
+
+    hover: 'hover:border-gray-300',
+
+    speech: 'speech-active:border-oegb-red speech-active:bg-textArea-focus',
+  };
+
+  const wrapperStyles = {
+    base: '0relative flex flex-col w-full',
+
+    header: 'mb-2',
+
+    footer: 'absolute bottom-0 left-0 right-0 bg-surface-secondary  border-t border-border-light p-2',
+  };
   const uploadActive = endpointSupportsFiles && !isUploadDisabled;
   const speechClass = isRTL
     ? `pr-${uploadActive ? '12' : '4'} pl-12`
@@ -185,7 +205,10 @@ const ChatForm = ({ index = 0 }) => {
                   data-testid="text-input"
                   style={{ height: 44, overflowY: 'auto' }}
                   rows={1}
-                  className={cn(baseClasses, speechClass, removeFocusRings)}
+                  className={cn(
+                    baseClasses,textareaStyles.base,
+                    textareaStyles.focus, textareaStyles.hover, speechClass && textareaStyles.speech, removeFocusRings, 'min-h-[44px]',
+                  )}
                 />
               )}
             </FileFormWrapper>

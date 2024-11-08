@@ -1,19 +1,15 @@
-// const { fontFamily } = require('tailwindcss/defaultTheme');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  // darkMode: 'class',
   darkMode: ['class'],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      mono: ['Roboto Mono', 'monospace'],
+      sans: ['Arial', 'sans-serif'],
+      heading: ['Proxima Nova', 'sans-serif'],
     },
-    // fontFamily: {
-    //   sans: ['Söhne', 'sans-serif'],
-    //   mono: ['Söhne Mono', 'monospace'],
-    // },
+    borderRadius: {
+      none: '0',
+    },
     extend: {
       width: {
         authPageWidth: '370px',
@@ -33,100 +29,104 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       colors: {
-        gray: {
-          20: '#ececf1',
-          50: '#f7f7f8',
-          100: '#ececec',
-          200: '#e3e3e3',
-          300: '#cdcdcd',
-          400: '#999696',
-          500: '#595959',
-          600: '#424242',
-          700: '#2f2f2f',
-          800: '#212121',
-          850: '#171717',
-          900: '#0d0d0d',
+        // Primary brand colors
+        'brand-primary': '#E2001A',
+        'brand-secondary': '#F5F8FA',
+        // OEGB Brand Colors
+        'oegb-red': '#E2001A',
+        'oegb-bg': '#F5F8FA',
+
+        // Text colors
+        'text-primary': '#000000',
+        'text-secondary': '#868686',
+        'text-tertiary': '#474849',
+
+        // UI Component Colors
+        'surface-primary': {
+          DEFAULT: '#FFFFFF',
+          alt: '#F5F8FA',
         },
-        green: {
-          50: '#f1f9f7',
-          100: '#def2ed',
-          200: '#a6e5d6',
-          300: '#6dc8b9',
-          400: '#41a79d',
-          500: '#10a37f',
-          550: '#349072',
-          600: '#126e6b',
-          700: '#0a4f53',
-          800: '#06373e',
-          900: '#031f29',
+        'surface-secondary': {
+          DEFAULT: '#F5F8FA',
+          hover: '#EAEEF1',
         },
-        'brand-purple': '#ab68ff',
-        'text-primary': 'var(--text-primary)',
-        'text-secondary': 'var(--text-secondary)',
-        'text-secondary-alt': 'var(--text-secondary-alt)',
-        'text-tertiary': 'var(--text-tertiary)',
-        'ring-primary': 'var(--ring-primary)',
-        'header-primary': 'var(--header-primary)',
-        'header-hover': 'var(--header-hover)',
-        'header-button-hover': 'var(--header-button-hover)',
-        'surface-active': 'var(--surface-active)',
-        'surface-hover': 'var(--surface-hover)',
-        'surface-primary': 'var(--surface-primary)',
-        'surface-primary-alt': 'var(--surface-primary-alt)',
-        'surface-primary-contrast': 'var(--surface-primary-contrast)',
-        'surface-secondary': 'var(--surface-secondary)',
-        'surface-secondary-alt': 'var(--surface-secondary-alt)',
-        'surface-tertiary': 'var(--surface-tertiary)',
-        'surface-tertiary-alt': 'var(--surface-tertiary-alt)',
-        'surface-dialog': 'var(--surface-dialog)',
-        'surface-submit': 'var(--surface-submit)',
-        'border-light': 'var(--border-light)',
-        'border-medium': 'var(--border-medium)',
-        'border-medium-alt': 'var(--border-medium-alt)',
-        'border-heavy': 'var(--border-heavy)',
-        'border-xheavy': 'var(--border-xheavy)',
-        /* These are test styles */
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ['switch-unchecked']: 'hsl(var(--switch-unchecked))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+        'surface-tertiary': {
+          DEFAULT: '#F5F8FA',
+          alt: '#E5E6E7',
         },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+        // Border colors
+        'border-light': '#E5E6E7',
+        'border-medium': '#C5C5C5',
+        // Border Colors
+        'border': {
+          light: '#E5E6E7',
+          DEFAULT: '#C5C5C5',
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+
+        // Specific Component Colors
+        'nav': {
+          active: '#E2001A',
+          hover: '#F5F8FA',
         },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+        'button': {
+          primary: '#E2001A',
+          secondary: '#FFFFFF',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        'input': {
+          focus: '#E2001A',
+          border: '#E5E6E7',
         },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+        'textArea': {
+          base: '#FFFFFF',
+          alt: '#F5F8FA',
+          focus: 'rgba(226, 0, 26, 0.05)', // Light red tint for focus state
         },
+        backgroundColor: theme => ({
+          'data-panel': '#F5F8FA',
+          'nav-active': theme('colors.oegb-red'),
+        }),
+
+        borderColor: theme => ({
+          'panel': '#C5C5C5',
+          'input-focus': theme('colors.oegb-red'),
+        }),
+        // Button colors
+        'button-primary': {
+          bg: '#E2001A',
+          text: '#FFFFFF',
+        },
+        'button-secondary': {
+          bg: '#FFFFFF',
+          text: '#E2001A',
+          border: '#E5E6E7',
+        },
+        'button-tertiary': {
+          bg: '#F5F8FA',
+          text: '#474849',
+        },
+
+        // Link colors
+        'link': '#E2001A',
+
+        // Header specific
+        'header': {
+          bg: 'rgba(255, 255, 255, 0.8)', // For frosted glass effect
+          shadow: 'rgba(0, 0, 0, 0.1)',
+        }
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+      backdropFilter: {
+        'header': 'blur(10px)',
+      },
+      boxShadow: {
+        'header': '0 1px 3px rgba(0, 0, 0, 0.1)',
       },
     },
   },
   plugins: [
     require('tailwindcss-animate'),
-    require('tailwindcss-radix')(),
-    // require('@tailwindcss/typography'),
+    require('tailwindcss-radix'),
+    // Custom plugin for backdrop filters if needed
+
+
   ],
 };
