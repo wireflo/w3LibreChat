@@ -1,0 +1,109 @@
+# For more information, see the Configuration Guide:
+# https://www.librechat.ai/docs/configuration/librechat_yaml
+
+# Configuration version (required)
+version: 1.1.5
+
+# Cache settings: Set to true to enable caching
+cache: true
+
+# Custom interface configuration
+interface:
+  # Privacy policy settings
+  privacyPolicy:
+    externalUrl: 'https://librechat.ai/privacy-policy'
+    openNewTab: true
+
+  # Terms of service
+  termsOfService:
+    externalUrl: 'https://librechat.ai/tos'
+    openNewTab: true
+    modalAcceptance: true
+    modalTitle: "Terms of Service for LibreChat"
+    modalContent: |
+      # Terms and Conditions for w3-LibreChat
+      *Effective Date: February 18, 2024*
+
+    
+# Example Registration Object Structure (optional)
+#registration:
+ # socialLogins: ['github', 'google', 'discord', 'openid', 'facebook']
+  # allowedDomains:
+  # - "gmail.com"
+
+# speech:
+#   tts:
+#     openai:
+#       url: ''
+#       apiKey: '${TTS_API_KEY}'
+#       model: ''
+#       voices: ['']
+
+#  
+#   stt:
+#     openai:
+#       url: ''
+#       apiKey: '${STT_API_KEY}'
+#       model: ''
+
+# rateLimits:
+#   fileUploads:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # Rate limit window for file uploads per IP
+#     userMax: 50
+#     userWindowInMinutes: 60  # Rate limit window for file uploads per user
+#   conversationsImport:
+#     ipMax: 100
+#     ipWindowInMinutes: 60  # Rate limit window for conversation imports per IP
+#     userMax: 50
+#     userWindowInMinutes: 60  # Rate limit window for conversation imports per user
+
+# Definition of custom endpoints
+endpoints:
+  openAI:
+    streamRate: 25
+  anthropic:
+    streamRate: 35
+
+modelSpecs:
+  enforce: true
+  prioritize: true
+  list:
+    - name: "oegpt-ar-content-assistant"
+      label: "Arbeitsrecht Service Texting-Assistant"
+      description: "Content über Arbeitsrecht lt. Briefing"
+      iconURL: "https://shop.oegbverlag.at/media/favicon/stores/1/favicon.png"
+      preset:
+        default: true
+        endpoint: "anthropic"
+        model: "claude-3-5-sonnet-20241022"
+        maxContextTokens: 128000 # Maximum context tokens
+        max_tokens: 4096 # Maximum output tokens
+        temperature: 0.8
+        showIconInMenu: false
+        showIconInHeader: false
+        modelLabel: "Ghostwriter (Sonnet-3.5)"
+        greeting: |
+          Schreibblockade ? ich helfe mit Content zum Arbeitsrecht probiers mit: 
+          "Web Artikel zu Klopausen während arbeitszeit 250 wörter"
+          "Insta Post Alleinerziehende Sommerferien"
+          "Frage/Antwort Haustiere im Büro"
+        promptPrefix: |
+          "Du bist ein Experte für Online-Texte, der für eine österreichische Interessenvertretung für
+          Arbeitnehmerrechte arbeitet. Deine Aufgabe ist es, informative und überzeugende Texte im Bereich
+          Arbeitsrecht zu erstellen. Dabei sollst du immer faktentreu, selbstbewusst und bestimmt auftreten. Befolge diese Richtlinien bei der Erstellung deines Textes:
+          1. Konzentriere dich ausschließlich auf das angegebene Thema im Bereich Arbeitsrecht.
+          2. Stelle sicher, dass alle Informationen aktuell und für Österreich relevant sind.
+          3. Verwende eine klare, verständliche Sprache, die für die Zielgruppe der Arbeitnehmer geeignet ist.
+          4. Sei immer faktentreu, aber präsentiere die Informationen auf eine selbstbewusste und bestimmte Art und Weise.
+          5. Betone die Rechte der Arbeitnehmer und die Wichtigkeit ihrer Vertretung.
+          
+          Beachte bei der Erstellung des Textes die spezifischen Anforderungen des angegebenen Kanals:
+          - Für Social Media: Kurz und prägnant, verwende Hashtags und emotionale Ansprache.
+          - Für Blog-Artikel: Ausführlicher, mit Zwischenüberschriften und eventuell Aufzählungen.
+          - Für Newsletter: Kompakt, aber informativ, mit einem klaren Call-to-Action.
+          - Für die Website: Strukturiert, mit klaren Überschriften und eventuell Links zu weiterführenden
+          Informationen.
+          
+          Beginne nun mit der Erstellung des Textes passend zur folgenden Benutzereingabe:
+
